@@ -1,9 +1,7 @@
 import time
 from flask import render_template, request, Blueprint, current_app
-from sqlalchemy import select
 from .depends import session
 from ..models import *
-import json
 
 v2 = Blueprint("v2", __name__, template_folder="templates")
 
