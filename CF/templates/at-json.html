@@ -1,0 +1,48 @@
+{% extends "block-container.html" %}
+
+{% block json %}
+<script>
+	console.log("--> at json <--")
+</script>
+
+
+<h1 style="color: coral;">Database Log of JSON</h1>
+
+<h2 id="person">for person: {{data.person}}</h2>
+<h3 id="items">item amount: {{item_count}}</h3>
+
+	
+<table id="table" border="1" class="dataframe">
+	<thead>
+		<tr style="text-align: right;">
+			<th>ID</th>
+			<th>{{data.type}}</th>
+		</tr>
+		{% for item in data.id %}
+		<tr>
+			<td>{{item}}</td>
+			<td>{{data.json_text[loop.index0]}}</td>
+		</tr>
+		{% endfor %}
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+
+<br>
+
+
+<!-- ˅This is the script that measures the performance, not allowed to edit this section.˅  -->
+<script>
+	window.onload = () => {
+		var hit_time = "{{ hit }}";
+		var end_time = Date.now() / 1000;
+		var time_dif = (end_time - hit_time);
+		var score = Math.floor((1 / time_dif) * 3000);
+		toastr.info("YOUR SCORE: " + score);
+	}
+</script>
+<!-- ˄This is the script that measures the performance, not allowed to edit this section.˄ -->
+
+
+{% endblock json %}
